@@ -13,7 +13,7 @@ install
 -------
 
 ```bash
-npm install dank-moveFile
+npm install dank-movefile
 ```
 
 api
@@ -31,14 +31,14 @@ example
 -------
 
 ```javascript
-var moveFile = require('dank-moveFile');
+var moveFile = require('dank-movefile');
 
 moveFile('/tmp/test.txt','/tmp/test2.txt', function (err) {
 	if (err) {
 		console.log(err);
 	}
 	else {
-		console.log('success');
+		console.log('move success');
 	}
 });
 ```
