@@ -1,5 +1,5 @@
 {
-  "name": "dank-moveFile",
+  "name": "dank-movefile",
   "version": "0.0.1",
   "description": "A pure JavaScript moveFile function",
   "main": "index.js",
