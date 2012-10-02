@@ -8,6 +8,14 @@ This is different from node's native `fs.rename()` function in that
 unlinks the source file if no errors occurred. This allows us to move files
 between devices, unlike `fs.rename()`.
 
+
+install
+-------
+
+```bash
+npm install dank-moveFile
+```
+
 api
 ---
 
