@@ -1,0 +1,23 @@
+{
+  "name": "dank-moveFile",
+  "version": "0.0.1",
+  "description": "A pure JavaScript moveFile function",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "nodeunit test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/wankdanker/node-dank-moveFile.git"
+  },
+  "keywords": [
+    "move",
+    "file",
+    "moveFile"
+  ],
+  "author": "Dan VerWeire",
+  "license": "MIT"
+}
