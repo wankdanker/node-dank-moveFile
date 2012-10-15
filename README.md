@@ -1,4 +1,4 @@
-dank-moveFile
+dank-moveFile [![Build Status](https://secure.travis-ci.org/wankdanker/node-dank-moveFile.png)](http://travis-ci.org/wankdanker/node-dank-moveFile)
 -------------
 
 A pure JavaScript moveFile function for node.
