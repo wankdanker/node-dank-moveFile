@@ -32,7 +32,7 @@ function moveFile (from, to, callback) {
 	source.on('close', maybeCallback);
 	source.on('error', handleError);
 	
-	destination.on('cloase', maybeCallback);
+	destination.on('close', maybeCallback);
 	destination.on('error', handleError);
 	
 
