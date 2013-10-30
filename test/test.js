@@ -1,6 +1,10 @@
 var moveFile = require('../')
 	, fs = require('fs')
+	, tape = require('tape')
 	;
+
+//for simple backwards compatability with these tests (migrating from nodeunit)
+tape.Test.prototype.done = tape.Test.prototype.end;
 
 var testData = 'Hello world.';
 var testFileName = 'test.txt'
@@ -25,9 +29,9 @@ function deleteFile(name, cb) {
 	fs.unlink(name, cb);
 }
 
-exports['create and move file'] = function (test) {
+tape('create and move file', function (test) {
 	var newFileName = 'test-file-moved.txt';
-	
+
 	writeFile(testFileName, function () {
 		moveFile(testFileName, newFileName, function (err) {
 			test.equal(err, null);
@@ -42,9 +46,9 @@ exports['create and move file'] = function (test) {
 			});
 		});
 	});
-};
+});
 
-exports['create and move file to unwritable location'] = function (test) {
+tape('create and move file to unwritable location', function (test) {
 	var newFileName = '/_afkj3kjfs0fnj34kjf__95ds/test.txt';
 	
 	writeFile(testFileName, function () {
@@ -56,9 +60,9 @@ exports['create and move file to unwritable location'] = function (test) {
 			});
 		});
 	});
-};
+});
 
-exports['move file that does not exist'] = function (test) {
+tape('move file that does not exist', function (test) {
 	var newFileName = 'test-file-moved.txt';
 	
 	moveFile('some-file-that-does-not-exist.txt', newFileName, function (err) {
@@ -70,4 +74,4 @@ exports['move file that does not exist'] = function (test) {
 			test.done();
 		});
 	});
-};
+});
