@@ -10,15 +10,7 @@ var testData = 'Hello world.';
 var testFileName = 'test.txt'
 
 function writeFile(name, cb) {
-	fs.writeFile(name, testData, 'utf8', function (err) {
-		if (err) {
-			//I'm throwing here because I just want this whole thing to
-			//fail if we can't write to a test file
-			throw err;
-		}
-		
-		return cb(null);
-	});
+	fs.writeFile(name, testData, 'utf8', cb);
 };
 
 function readFile(name, cb) {
@@ -32,7 +24,9 @@ function deleteFile(name, cb) {
 tape('create and move file', function (test) {
 	var newFileName = 'test-file-moved.txt';
 
-	writeFile(testFileName, function () {
+	writeFile(testFileName, function (err) {
+		test.equal(err, null);
+
 		moveFile(testFileName, newFileName, function (err) {
 			test.equal(err, null);
 			
@@ -51,7 +45,9 @@ tape('create and move file', function (test) {
 tape('create and move file to unwritable location', function (test) {
 	var newFileName = '/_afkj3kjfs0fnj34kjf__95ds/test.txt';
 	
-	writeFile(testFileName, function () {
+	writeFile(testFileName, function (err) {
+		test.equal(err, null);
+
 		moveFile(testFileName, newFileName, function (err) {
 			test.deepEqual(err, {"errno":34,"code":"ENOENT","path":"/_afkj3kjfs0fnj34kjf__95ds/test.txt.part"});
 			
